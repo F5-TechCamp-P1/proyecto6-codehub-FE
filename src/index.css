@@ -21,9 +21,13 @@ body {
   min-height: 100vh;
 }
 
-h1 {
+h1,h2 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+p{
+  font-size: 2.175em;
 }
 
 @media (prefers-color-scheme: light) {
