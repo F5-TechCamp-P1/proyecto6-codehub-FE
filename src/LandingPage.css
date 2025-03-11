@@ -53,14 +53,17 @@ body {
 }
 
 .login-button {
-  width: 100%;
+  width: 33%;
   padding: 10px;
   background-color: #04AA6D;
   color: white;
   border: none;
   border-radius: 25px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  display: block;
+  margin-left: auto;
 }
 
 .login-button:hover {
