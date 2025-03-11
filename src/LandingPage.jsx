@@ -1,11 +1,12 @@
 import React from "react";
 import "./LandingPage.css";
+import logo from "./assets/logo.jpeg";
 
 const LandingPage = () => {
   return (
     <div className="container">
       <div className="login-box">
-        <div className="logo">*</div>
+      <img src={logo} alt="Logo" className="logo" />
         <h1 className="title">Log in</h1>
         <input type="text" placeholder="Usuario" className="input-field" />
         <input type="password" placeholder="********" className="input-field" />
