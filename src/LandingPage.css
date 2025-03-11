@@ -21,8 +21,8 @@ body {
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 300px; 
+  text-align: left;
+  width: 320px;
 }
 
 .logo {
@@ -39,13 +39,15 @@ body {
 }
 
 .input-field {
-  width: 100%;
+  width: 93%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 25px;
   background-color: #fff;
   color: #333;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .input-field::placeholder {
