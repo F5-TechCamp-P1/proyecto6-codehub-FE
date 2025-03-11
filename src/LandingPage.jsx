@@ -11,9 +11,6 @@ const LandingPage = () => {
         <input type="password" placeholder="********" className="input-field" />
         <button className="login-button">Login</button>
       </div>
-      <footer className="footer">
-        <span className="footer-logo">*</span> footer footer footer footer footer footer
-      </footer>
     </div>
   );
 };
