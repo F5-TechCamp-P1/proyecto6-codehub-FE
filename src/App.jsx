@@ -1,11 +1,8 @@
-import './App.css'
+import React from "react";
+import UploadPage from "./UploadPage";
 
 function App() {
-
-
-  return (
-   <></>
-  )
+  return <UploadPage />;
 }
 
-export default App
+export default App;
