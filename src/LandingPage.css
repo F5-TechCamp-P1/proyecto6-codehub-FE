@@ -10,9 +10,6 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
@@ -26,6 +23,17 @@ body {
   flex-direction: column;
   align-items: flex-start;
   width: 320px;
+}
+
+.logo_container {
+  justify-self: center;
+  width: 100%;
+  height: 20%;
+}
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .title {
@@ -68,12 +76,4 @@ body {
 
 .login-button:hover {
   background-color: #04AA6D;
-}
-
-.logo {
-  width: 100px; 
-  height: auto; 
-  margin-bottom: 70px; 
-  display: block;
-  margin-left: 0;
 }
