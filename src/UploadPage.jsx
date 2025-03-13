@@ -3,23 +3,24 @@ import "./UploadPage.css";
 import logo from "./assets/logo.jpeg";
 
 const UploadPage = () => {
-  const [message, setMessage] = useState(""); 
+  const [message, setMessage] = useState("");
 
   const handleUpload = () => {
-    
-    const success = Math.random() > 0.5; 
+    const success = Math.random() > 0.5;
 
     if (success) {
-      setMessage("✅ Contenido adjuntado con éxito."); 
+      setMessage("✅ Contenido adjuntado con éxito.");
     } else {
-      setMessage("❌ Hubo un problema al adjuntar el contenido."); 
+      setMessage("❌ Hubo un problema al adjuntar el contenido.");
     }
   };
 
   return (
-    <div className="container">
-      <div className="upload-box">
+    <div className="upload-box">
+      <div className="logo_container">
         <img src={logo} alt="Logo" className="logo" />
+      </div>
+      <div>
         <h1 className="title">Subir Contenido</h1>
         <input type="text" placeholder="Ruta" className="input-field" />
         <div className="drop-area">Arrastra Aquí</div>
