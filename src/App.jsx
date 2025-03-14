@@ -1,4 +1,5 @@
 import React from "react";
+
 import LandingPage from "./LandingPage";
 import "./App.css";
 
@@ -7,3 +8,4 @@ function App() {
 }
 
 export default App;
+
