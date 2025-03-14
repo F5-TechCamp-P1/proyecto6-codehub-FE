@@ -1,6 +1,6 @@
 import React from "react";
 
-import LandingPage from "./NewCategory";
+import LandingPage from "./LandingPage";
 import "./App.css";
 
 function App() {
