@@ -13,21 +13,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+body{
   min-height: 100vh;
+  place-content: center;
 }
 
-h1,h2 {
+h1 {
+  font-size: 5.7em;
+  line-height: 1.1;
+  margin: 1rem;
+}
+
+h2 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 1rem;
 }
 
 p{
   font-size: 2.175em;
+  margin: 1rem
+}
+
+@media (min-width: 320px) and (max-width: 767px){
+  p {
+    font-size: 1em;
+  }
+
+  h2 {
+    font-size: 1.575em;
+  }
 }
 
 @media (prefers-color-scheme: light) {
