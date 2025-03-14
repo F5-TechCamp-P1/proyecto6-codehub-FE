@@ -1,9 +1,11 @@
 import React from "react";
-import UploadPage from "./UploadPage";
+
+import LandingPage from "./LandingPage";
 import "./App.css";
 
 function App() {
-  return <UploadPage />;
+  return <LandingPage />;
 }
 
 export default App;
+
