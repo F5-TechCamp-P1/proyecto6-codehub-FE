@@ -21,7 +21,7 @@ export const Category = () => {
             <h2 >¿Está seguro de que desea eliminar la categoría "Frontend"?</h2>
             <div className="delete-opts">
                 <Button action="delete" />
-                <Button action="reject" handleOnClick={handleClick}/>            
+                <Button action="reject" handleOnClick={handleClick}/>
             </div>
           </div>
         </div>
@@ -53,3 +53,5 @@ export const Category = () => {
     </div>
   );
 };
+
+export default Category;
