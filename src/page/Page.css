@@ -1,0 +1,8 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #205c63;
+    min-height: 100vh;
+    padding: 1rem;
+  }
