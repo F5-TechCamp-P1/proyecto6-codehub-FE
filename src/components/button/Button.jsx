@@ -8,5 +8,3 @@ export const Button = ({action, handleOnClick}) => {
         </button>
     )
 }
-
-export default Button

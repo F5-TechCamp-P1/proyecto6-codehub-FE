@@ -1,18 +1,41 @@
 import React, { useState } from "react";
-import "./Form.css";
-import FormButton from "../button/FormButton";
+import { FormButton } from "../button/FormButton";
 import logo from "/logo.jpeg";
+import "./Form.css";
 
-const Form = ({ type, onSubmit }) => {
-  const [inputValue, setInputValue] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const InputField = ({ type, placeholder, value, onChange, name }) => {
+  return (
+  <input
+    type={type}
+    placeholder={placeholder}
+    value={value}
+    name={name}
+    className="input-field"
+    onChange={onChange}
+  />
+  )
+};
+
+export const Form = ({ type, onSubmit }) => {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    inputValue: "",
+  });
   const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  const handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+   const handleSubmit = (e) => {
+    e.preventDefault();
     if (
-      (type === "login" && (!username.trim() || !password.trim())) ||
-      (type !== "login" && !inputValue.trim())
+      (type === "login" && (!formData.username.trim() || !formData.password.trim())) ||
+      (type !== "login" && !formData.inputValue.trim())
     ) {
       setError("❌ El campo no puede estar vacío.");
       return;
@@ -20,15 +43,11 @@ const Form = ({ type, onSubmit }) => {
 
     setError("");
 
-    if (type === "login") {
-      onSubmit({ username, password });
-    } else {
-      onSubmit(inputValue);
-    }
+    type === "login" ? onSubmit(formData.username, formData.password) : onSubmit(formData.inputValue);
   };
 
   return (
-    <div className="form-box">
+    <form className="form-box" onSubmit={handleSubmit}>
       <div className="logo_container">
         <img src={logo} alt="Logo" className="logo" />
       </div>
@@ -37,45 +56,40 @@ const Form = ({ type, onSubmit }) => {
           {type === "login" ? "Log in" : type === "upload" ? "Añadir contenido" : "Añadir categoría"}
         </h1>
 
-        {/* Fields for login */}
         {type === "login" ? (
           <>
-            <input
+            <InputField
               type="text"
-              placeholder="Usuario"
-              className="input-field"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder={type === "upload" ? "Ruta" : "Nombre"}
+              name="inputValue"
+              value={formData.username}
+              onChange={(e) => handleChange(e.target.value)}
             />
-            <input
+            <InputField
               type="password"
               placeholder="********"
-              className="input-field"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={formData.password}
+              onChange={(e) => handleChange(e.target.value)}
             />
           </>
         ) : (
           <>
-            <input
+            <InputField
               type="text"
               placeholder={type === "upload" ? "Ruta" : "Nombre"}
-              className="input-field"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              className="inputValue"
+              value={formData.inputValue}
+              onChange={handleChange}
             />
             {type !== "login" && <div className="drop-area">{type === "upload" ? "Arrastra Aquí" : "Descripción"}</div>}
           </>
         )}
 
-        {/* Button */}
-        <FormButton label={type === "login" ? "Login" : "Añadir"} onClick={handleSubmit} />
+        <FormButton label={type === "login" ? "Login" : "Añadir"} />
 
-        {/* Error */}
         {error && <div className="message error">{error}</div>}
       </div>
-    </div>
+    </form>
   );
 };
-
-export default Form;

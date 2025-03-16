@@ -1,37 +1,38 @@
-import React, { useEffect, useState } from "react";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
-import Category from "../components/category/Category";
-import Button from "../components/button/Button";
-import Form from "../components/form/Form";
-import fetchData from "../services/dataService";  // Asegúrate de que esta función está definida
+import { Header } from "../components/header/Header";
+import { Footer } from "../components/footer/Footer";
+import { Category } from "../components/category/Category";
+import { Button } from "../components/button/Button";
+import { FormsContainer } from "../components/forms_container/FormsContainer";
+import { useLogin } from "../features/useLogin";
+import { useForm } from "../contexts/FormContext";
 import "./Page.css";
 
-const Page = () => {
-    const [isLogged, setIsLogged] = useState(false);
-    const [categories, setCategories] = useState([]);
-
+export const Page = () => {
+    const { activeForm } = useForm();
+    const { categories } = useLogin();
     const handleCreateCategory = () => {
         console.log("Crear categoría");
     };
 
-    useEffect(() => {
-        const loadData = async () => {
-            const userData = await fetchData();
-            setIsLogged(userData.isAuthenticated);
-            setCategories(userData.categories || []);
-        };
-        loadData();
-    }, []);
+    if (activeForm)
+        return (
+            <div className="page-container">
+                <Header />
+                <main className="content">
+                    <FormsContainer />
+                </main>
+                <Footer />
+            </div>
+        );
 
     return (
         <div className="page-container">
             <Header />
             <main className="content">
-                {!isLogged ? (
-                    <Form type="login" onSubmit={() => console.log("User authenticated")} />
+                {/* {!isLogged ? (
+                    <Form type="login" onSubmit={handleLogin} />
                 ) : (
-                    <>
+                    <> */}
                         <Button type="addCategory" handleClick={handleCreateCategory} />
                         {categories.length > 0 ? (
                             categories.map((category, index) => (
@@ -40,13 +41,11 @@ const Page = () => {
                         ) : (
                             <p>No hay categorías disponibles.</p>
                         )}
-                        <Form type="upload" onSubmit={(data) => console.log("Content uploaded:", data)} />
+                        {/* <Form type="upload" onSubmit={(data) => console.log("Content uploaded:", data)} />
                     </>
-                )}
+                )} */}
             </main>
             <Footer />
         </div>
     );
 };
-
-export default Page;

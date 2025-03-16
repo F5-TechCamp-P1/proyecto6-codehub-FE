@@ -1,8 +1,6 @@
 import React from "react";
 import "./FormButton.css";
 
-const FormButton = ({ label, onClick }) => {
-  return <button className="form-button" onClick={onClick}>{label}</button>;
+export const FormButton = ({ label }) => {
+  return <button className="form-button" type="submit" >{label}</button>;
 };
-
-export default FormButton;

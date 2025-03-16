@@ -1,7 +1,8 @@
 import { createContext, useState, useContext } from "react";
+
 const FormContext = createContext();
 
-const FormProvider = ({ children }) => {
+export const FormProvider = ({ children }) => {
     const [activeForm, setActiveForm] = useState("landing");
 
     return (
@@ -12,5 +13,4 @@ const FormProvider = ({ children }) => {
 
 }
 
-export { FormContext, FormProvider };
 export const useForm = () => useContext(FormContext);

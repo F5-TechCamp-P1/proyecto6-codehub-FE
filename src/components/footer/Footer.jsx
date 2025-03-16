@@ -1,8 +1,8 @@
 import React from "react";
-import "./Footer.css";
 import { FaGithub } from "react-icons/fa";
+import "./Footer.css";
 
-const Footer = () => {
+export const Footer = () => {
   const users = [
     { name: "Alejandro Arias", url: "https://github.com/AlejandroAriasSL" },
     { name: "Grigory Vladimiro", url: "https://github.com/Grigory-Vladimiro" },
@@ -27,5 +27,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
