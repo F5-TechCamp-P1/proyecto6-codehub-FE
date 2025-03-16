@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import "./Form.css";
 import FormButton from "../button/FormButton";
-import logo from "/public/logo.jpeg";
+import logo from "/logo.jpeg";
 
 const Form = ({ type, onSubmit }) => {
-  const [inputValue, setInputValue] = useState(""); 
-  const [username, setUsername] = useState(""); 
-  const [password, setPassword] = useState(""); 
+  const [inputValue, setInputValue] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = () => {
     if (
-      (type === "login" && (!username.trim() || !password.trim())) || 
-      (type !== "login" && !inputValue.trim()) 
+      (type === "login" && (!username.trim() || !password.trim())) ||
+      (type !== "login" && !inputValue.trim())
     ) {
       setError("❌ El campo no puede estar vacío.");
       return;
     }
 
-    setError(""); 
+    setError("");
 
     if (type === "login") {
-      onSubmit({ username, password }); 
+      onSubmit({ username, password });
     } else {
       onSubmit(inputValue);
     }
@@ -51,7 +51,7 @@ const Form = ({ type, onSubmit }) => {
               type="password"
               placeholder="********"
               className="input-field"
-              value={password} 
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </>
