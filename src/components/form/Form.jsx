@@ -3,7 +3,7 @@ import { FormButton } from "../button/FormButton";
 import logo from "/logo.jpeg";
 import "./Form.css";
 
-const InputField = ({ type, placeholder, value, onChange, name }) => {
+const InputField = ({ type, name, placeholder, value, onChange }) => {
   return (
   <input
     type={type}
@@ -17,25 +17,17 @@ const InputField = ({ type, placeholder, value, onChange, name }) => {
 };
 
 export const Form = ({ type, onSubmit }) => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    inputValue: "",
-  });
+
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const [inputValue, setInputValue] = useState();
   const [error, setError] = useState("");
 
-  const handleChange = (e) => {
-    console.log(e.target.name, e.target.value);
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
    const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      (type === "login" && (!formData.username.trim() || !formData.password.trim())) ||
-      (type !== "login" && !formData.inputValue.trim())
+      (type === "login" && (!username.trim() || !password.trim())) ||
+      (type !== "login" && !inputValue.trim())
     ) {
       setError("❌ El campo no puede estar vacío.");
       return;
@@ -43,7 +35,7 @@ export const Form = ({ type, onSubmit }) => {
 
     setError("");
 
-    type === "login" ? onSubmit(formData.username, formData.password) : onSubmit(formData.inputValue);
+    type === "login" ? onSubmit(username, password) : onSubmit(inputValue);
   };
 
   return (
@@ -62,15 +54,15 @@ export const Form = ({ type, onSubmit }) => {
               type="text"
               placeholder={type === "upload" ? "Ruta" : "Nombre"}
               name="inputValue"
-              value={formData.username}
-              onChange={(e) => handleChange(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <InputField
               type="password"
               placeholder="********"
               name="password"
-              value={formData.password}
-              onChange={(e) => handleChange(e.target.value)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </>
         ) : (
@@ -79,8 +71,8 @@ export const Form = ({ type, onSubmit }) => {
               type="text"
               placeholder={type === "upload" ? "Ruta" : "Nombre"}
               className="inputValue"
-              value={formData.inputValue}
-              onChange={handleChange}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
             />
             {type !== "login" && <div className="drop-area">{type === "upload" ? "Arrastra Aquí" : "Descripción"}</div>}
           </>

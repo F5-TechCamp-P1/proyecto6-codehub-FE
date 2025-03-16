@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { fetchData } from "../services/dataService";
 import { useForm } from "../contexts/FormContext";
 
@@ -9,15 +9,6 @@ const [apikey, setApikey] = useState("");
 const [categories, setCategories] = useState([]);
 const { setActiveForm } = useForm();
 
-/*   useEffect(() => {
-    const loadData = async () => {
-        const userData = await fetchData();
-        setIsLogged(userData.isAuthenticated);
-        setCategories(userData.categories || []);
-    };
-    loadData();
-}, []);
- */
   const handleLogin = async (username, password) => {
     console.log("Login:", username, password);
     try {
@@ -36,7 +27,9 @@ const { setActiveForm } = useForm();
 
         setIsLogged(true);
         setActiveForm(false);
-        return await response.json();
+        const data = await response
+        setApikey(apikey)
+        return data;
     } catch (error) {
         console.error("Error logging in:", error);
     }
