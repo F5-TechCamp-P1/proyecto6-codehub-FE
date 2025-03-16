@@ -1,0 +1,13 @@
+.bg-dark{
+    background-color: #1E1E1E;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+}
+img{
+    max-width: 100%;
+    max-height: 40px;
+}

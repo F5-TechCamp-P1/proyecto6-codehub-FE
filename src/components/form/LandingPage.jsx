@@ -1,6 +1,6 @@
 import React from "react";
 import "./LandingPage.css";
-import logo from "./assets/logo.jpeg";
+import logo from "/logo.jpeg";
 
 const LandingPage = () => {
   return (
