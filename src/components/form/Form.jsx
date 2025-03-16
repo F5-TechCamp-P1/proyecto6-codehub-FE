@@ -8,7 +8,7 @@ const InputField = ({ type, name, placeholder, value, onChange }) => {
   <input
     type={type}
     placeholder={placeholder}
-    value={value}
+    value={value || ""}
     name={name}
     className="input-field"
     onChange={onChange}
