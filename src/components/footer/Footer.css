@@ -39,3 +39,11 @@
     display: inline-flex;
     gap: 0.25rem;
   }
+
+  @media (min-width: 320px) and (max-width: 767px){
+    .footer-links{
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: large;
+    }
+  }
