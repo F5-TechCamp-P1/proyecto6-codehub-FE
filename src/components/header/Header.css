@@ -19,7 +19,6 @@
     max-height: 4rem;
 }
 
-
 @media (min-width: 320px) and (max-width: 767px){
     .nav-links p:nth-last-child(n+5) {
         width: 100%;
@@ -27,5 +26,15 @@
         pointer-events: none;
         transform: translateX(20px);
       }
-    
-  }
+}
+
+.logo-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logo-button img {
+    width: 6.25rem;
+}
