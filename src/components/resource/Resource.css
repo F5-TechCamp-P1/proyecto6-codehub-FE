@@ -54,12 +54,6 @@
     place-content: center;
 }
 
-.clickable-title {
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-}
-
 @media (min-width: 320px) and (max-width: 767px) {
     .card{
         border-radius: 1.85rem;

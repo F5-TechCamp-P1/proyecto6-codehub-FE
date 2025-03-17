@@ -1,22 +1,28 @@
 import { useState } from "react";
 import { Button } from "../button/Button";
-import "./Category.css";
+import "./Resource.css";
 
-export const Category = ({ title, handleOnClick, id }) => {
+export const Resource = ({ title, fileUrl, category }) => {
   const [visible, setIsVisible] = useState(true);
-
-
   const handleClick = () => {
     if (!visible) {
-        setIsVisible((prev) => !prev);
-  }};
+        setIsVisible(true)
+    } else {
+        setIsVisible(false);
+    }
+  };
+
 
   return (
     <div className="card">
       {!visible && (
         <div className="delete-container">
+            <h1>{category}</h1>
+            <h2>Lenguaje de marcado</h2>
+            <h2>Resources for {title}</h2>
+            <p>Here you can see all resources related to {title}.</p>
           <div className="card-delete">
-            <h2 >¿Está seguro de que desea eliminar la categoría "{title}"?</h2>
+            <h2 >¿Está seguro de que desea eliminar este contenido?</h2>
             <div className="delete-opts">
                 <Button action="delete" />
                 <Button action="reject" handleOnClick={handleClick}/>
@@ -32,20 +38,16 @@ export const Category = ({ title, handleOnClick, id }) => {
               <Button action="edit" />
             </div>
             <h2>{title}</h2>
-            <Button action="access-resource" handleOnClick={() => handleOnClick(id)} />
           </div>
-
           <div className="card-split">
             <div className="card-column">
             <h2>HTML</h2>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit non assumenda provident enim totam aperiam sint
-                itaque?
+                {fileUrl}
               </p>
             </div>
             <div className="card-center">
-              <img className="categoryImg" src="/htmlfile.png" alt="category example" />
+              <img className="categoryImg" src="/htmltutorial.png" alt="resource example" />
             </div>
           </div>
         </>
