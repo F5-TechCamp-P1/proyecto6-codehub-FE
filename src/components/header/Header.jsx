@@ -1,11 +1,16 @@
 import "./Header.css";
+import { useForm } from "../../contexts/FormContext";
 
 export const Header = () => {
+  const {setActiveForm } = useForm();
+
   return (
     <header className="bg-dark">
       <nav className="nav">
         <div>
-          <img src="/logo.png" alt="Logo" />
+          <button onClick={() => setActiveForm(false)} className="logo-button">
+            <img src="/logo.png" alt="Logo" />
+          </button>
         </div>
         <p>HTML</p>
         <p>CSS</p>
@@ -19,5 +24,3 @@ export const Header = () => {
     </header>
   );
 };
-
-export default Header;
