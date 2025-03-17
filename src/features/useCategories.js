@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import { fetchData } from "../services/dataService";
+import { useAuth } from "../context/AuthContext";
+import { fetchData } from "../services/fetchService";
 
 export const useCategories = () => {
   const [categories, setCategories] = useState([]);

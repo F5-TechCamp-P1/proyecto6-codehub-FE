@@ -1,32 +1,27 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .form-box {
     background-color: #ffffff;
+    margin: 3rem;
     padding: 3rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 320px;
+    max-width: 320px;
     display: flex;
     flex-direction: column;
     gap: 3rem;
   }
   
   .logo_container {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 20%;
   }
   
   .logo {
     width: 30%;
-    height: 30%;
     object-fit: contain;
     display: block;
-    justify-self: center;
+    align-self: center;
   }
   
   .title {

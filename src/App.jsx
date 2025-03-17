@@ -1,7 +1,7 @@
 import React from "react";
 import { Page } from "./page/Page";
-import { FormProvider } from "./contexts/FormContext";
-import { AuthProvider } from "./contexts/AuthContext";
+import { FormProvider } from "./context/FormContext";
+import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
 
 function App() {

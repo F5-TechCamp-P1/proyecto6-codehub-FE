@@ -4,7 +4,7 @@ import { Category } from "../components/category/Category";
 import { Button } from "../components/button/Button";
 import { FormsContainer } from "../components/forms_container/FormsContainer";
 import { useCategories } from "../features/useCategories";
-import { useForm } from "../contexts/FormContext";
+import { useForm } from "../context/FormContext";
 import "./Page.css";
 
 export const Page = () => {
@@ -19,7 +19,7 @@ export const Page = () => {
     if (activeForm)
         return (
             <div className="page-container">
-                <Header />
+                {activeForm !== "landing" && <Header />}
                 <main className="content">
                     <FormsContainer />
                 </main>
