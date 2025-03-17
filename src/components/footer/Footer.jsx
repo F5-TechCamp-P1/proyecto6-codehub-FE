@@ -1,8 +1,8 @@
 import React from "react";
-import "./Footer.css";
 import { FaGithub } from "react-icons/fa";
+import "./Footer.css";
 
-const Footer = () => {
+export const Footer = () => {
   const users = [
     { name: "Alejandro Arias", url: "https://github.com/AlejandroAriasSL" },
     { name: "Grigory Vladimiro", url: "https://github.com/Grigory-Vladimiro" },
@@ -15,7 +15,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <p className="footer-text">© 2025 Code Hub Bootcamp Repository. Todos los derechos reservados.</p>
         <div className="footer-links">
           {users.map((user, index) => (
             <a key={index} href={user.url} target="_blank" rel="noopener noreferrer" className="footer-link">
@@ -23,9 +22,8 @@ const Footer = () => {
             </a>
           ))}
         </div>
+          <p className="footer-text">© 2025 Code Hub Bootcamp Repository. Todos los derechos reservados.</p>
       </div>
     </footer>
   );
 };
-
-export default Footer;
