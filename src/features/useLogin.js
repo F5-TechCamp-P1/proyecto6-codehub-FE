@@ -6,7 +6,6 @@ export const useLogin = () => {
 
 const [isLogged, setIsLogged] = useState(false);
 const [apikey, setApikey] = useState("");
-const [categories, setCategories] = useState([]);
 const { setActiveForm } = useForm();
 
   const handleLogin = async (username, password) => {
@@ -28,13 +27,13 @@ const { setActiveForm } = useForm();
         setIsLogged(true);
         setActiveForm(false);
         const data = await response
-        setApikey(apikey)
+        setApikey(data.apikey)
         return data;
     } catch (error) {
         console.error("Error logging in:", error);
     }
   };
 
-  return { isLogged, handleLogin, categories, apikey };
+  return { isLogged, handleLogin, apikey };
 
 };
