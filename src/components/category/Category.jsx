@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm } from "../../contexts/FormContext";
+import { useForm } from "../../context/FormContext";
 import { Button } from "../button/Button";
 import "./Category.css";
 
