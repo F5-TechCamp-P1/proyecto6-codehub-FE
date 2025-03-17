@@ -53,5 +53,3 @@ export const Category = () => {
     </div>
   );
 };
-
-export default Category;

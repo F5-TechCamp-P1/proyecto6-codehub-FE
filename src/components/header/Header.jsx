@@ -1,5 +1,5 @@
 import "./Header.css";
-import { useForm } from "../../contexts/FormContext";
+import { useForm } from "../../context/FormContext";
 
 export const Header = () => {
   const {setActiveForm } = useForm();
