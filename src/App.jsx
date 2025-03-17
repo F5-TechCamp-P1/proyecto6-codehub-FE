@@ -1,14 +1,16 @@
 import React from "react";
 import { Page } from "./page/Page";
-import "./App.css";
 import { FormProvider } from "./contexts/FormContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import "./App.css";
 
 function App() {
   return (
-
-    <FormProvider>
-    <Page />
-    </FormProvider>
+      <FormProvider>      
+    <AuthProvider>
+        <Page />
+    </AuthProvider>
+      </FormProvider>
 
   );
 }

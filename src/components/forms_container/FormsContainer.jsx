@@ -1,10 +1,10 @@
 import { Form } from "../form/Form";
 import { useForm } from "../../contexts/FormContext";
-import { useLogin } from "../../features/useLogin";
+import { useAuth } from "../../contexts/AuthContext";
 
 export const FormsContainer = () => {
   const { activeForm } = useForm();
-  const { handleLogin } = useLogin();
+  const { handleLogin } = useAuth();
 
   return (
     <div>

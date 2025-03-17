@@ -4,8 +4,10 @@ export const fetchData = async (url, options = {}) => {
 
         const response = await fetch(url, options);
         if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
-        if (response.ok) {console.log(response.data)}
-        return response.json();
+        const data = await response.json();  
+        console.log(" Respuesta completa de la API:", data);
+
+        return data;  
     } catch (error) {
         console.error('Error fetching data:', error);
         return null;

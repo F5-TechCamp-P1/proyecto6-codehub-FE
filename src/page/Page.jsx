@@ -5,12 +5,12 @@ import { Button } from "../components/button/Button";
 import { FormsContainer } from "../components/forms_container/FormsContainer";
 import { useCategories } from "../features/useCategories";
 import { useForm } from "../contexts/FormContext";
-import { useEffect } from "react";
 import "./Page.css";
 
 export const Page = () => {
     const { activeForm } = useForm();
-    const { categories, fetchCategories } = useCategories();
+    const { categories} = useCategories();
+
 
     const handleCreateCategory = () => {
         console.log("Crear categoría");
