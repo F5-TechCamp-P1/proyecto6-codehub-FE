@@ -8,12 +8,12 @@ import { useForm } from "../contexts/FormContext";
 import "./Page.css";
 
 export const Page = () => {
-    const { activeForm } = useForm();
+    const { activeForm, setActiveForm } = useForm();
     const { categories} = useCategories();
 
 
     const handleCreateCategory = () => {
-        console.log("Crear categoría");
+        setActiveForm("category")
     };
 
     if (activeForm)
@@ -31,7 +31,7 @@ export const Page = () => {
         <div className="page-container">
             <Header />
             <main className="content">
-                        <Button type="addCategory" handleClick={handleCreateCategory} />
+                        <Button label="categoría" handleOnClick={handleCreateCategory} />
                         {categories.length > 0 ? (
                             categories.map((category, index) => (
                                 <Category key={index} title={category.title} />
