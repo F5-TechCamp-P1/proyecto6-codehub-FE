@@ -11,3 +11,14 @@ img{
     max-width: 100%;
     max-height: 40px;
 }
+
+.logo-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logo-button img {
+    width: 6.25rem;
+}
