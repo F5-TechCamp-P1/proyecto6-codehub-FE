@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { fetchData } from "../services/dataService";
+import { fetchData } from "../services/fetchService";
 import { useForm } from "./FormContext";
 
 const AuthContext = createContext();
