@@ -30,5 +30,23 @@ export const useCategories = () => {
       console.error("Error logging in:", error);
     }
   };
-  return { categories, fetchCategories };
+
+  const createCategories = async (category) => {
+    console.log(category)
+    try {
+      const response = await fetchData("http://localhost:8080/api/categories", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-KEY": apikey,
+        },
+        body: JSON.stringify({name: category})
+      });
+      if (!response) throw new Error("Error de autenticación");
+      setCategories(response)
+    } catch (error) {
+      console.error("Error logging in: ", error)
+    }
+  } 
+  return { categories, fetchCategories, createCategories };
 };
