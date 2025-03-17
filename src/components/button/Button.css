@@ -12,3 +12,23 @@
     cursor: pointer;
     color: #282A35;
 }
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-header .access-resource-button {
+    margin-top: 0.625rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+}
+
+.card-header .access-resource-button:hover {
+    background-color: #022116;
+ }

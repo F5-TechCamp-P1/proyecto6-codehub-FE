@@ -1,28 +1,28 @@
 import { useState } from "react";
-import { useForm } from "../../contexts/FormContext";
 import { Button } from "../button/Button";
-import "./Category.css";
+import "./Resource.css";
 
-export const Category = ({ title }) => {
+export const Resource = ({ category }) => {
   const [visible, setIsVisible] = useState(true);
-  const { setActiveForm, setSelectedCategory } = useForm();
 
   const handleClick = () => {
     if (!visible) {
-        setIsVisible((prev) => !prev);
-  }};
-
-  const handleCategoryClick = () => {
-    setSelectedCategory(title);
-    setActiveForm("resource");
-  }
+        setIsVisible(true)
+    } else {
+        setIsVisible(false);
+    }
+  };
 
   return (
     <div className="card">
       {!visible && (
         <div className="delete-container">
+            <h1>HTML</h1>
+            <h2>Lenguaje de marcado</h2>
+            <h2>Resources for {category}</h2>
+            <p>Here you can see all resources related to {category}.</p>
           <div className="card-delete">
-            <h2 >¿Está seguro de que desea eliminar la categoría "{title}"?</h2>
+            <h2 >¿Está seguro de que desea eliminar este contenido?</h2>
             <div className="delete-opts">
                 <Button action="delete" />
                 <Button action="reject" handleOnClick={handleClick}/>
@@ -37,21 +37,17 @@ export const Category = ({ title }) => {
               <Button action="delete" handleOnClick={handleClick} />
               <Button action="edit" />
             </div>
-            <h2>{title}</h2>
-            <Button action="access-resource" handleOnClick={handleCategoryClick} />
+            <h2>HTML Tutorial</h2>
           </div>
-
           <div className="card-split">
             <div className="card-column">
             <h2>HTML</h2>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit non assumenda provident enim totam aperiam sint
-                itaque?
+                https://www.w3schools.com/html/default.asp
               </p>
             </div>
             <div className="card-center">
-              <img className="categoryImg" src="/htmlfile.png" alt="category example" />
+              <img className="categoryImg" src="/htmltutorial.png" alt="resource example" />
             </div>
           </div>
         </>
