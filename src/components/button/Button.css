@@ -1,0 +1,25 @@
+.action-btn{
+    width: 3rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.feature-btn {
+    margin: 1rem 3rem;
+    max-width: 30%;
+    align-self: end;
+    padding: 1rem 1rem;
+    border: none;
+    background-color: #04AA6D;
+    border-radius: 3rem;
+    cursor: pointer;
+    color: #282A35;
+}
+
+@media (min-width: 320px) and (max-width: 767px){
+    .feature-btn{
+        border-radius: 2rem;
+        padding: 0.2rem 0.2rem;
+    }
+    
+  }
