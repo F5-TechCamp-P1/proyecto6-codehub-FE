@@ -1,21 +1,15 @@
 import { useState } from "react";
-import { useForm } from "../../context/FormContext";
 import { Button } from "../button/Button";
 import "./Category.css";
 
-export const Category = ({ title }) => {
+export const Category = ({ title, handleOnClick, id }) => {
   const [visible, setIsVisible] = useState(true);
-  const { setActiveForm, setSelectedCategory } = useForm();
+
 
   const handleClick = () => {
     if (!visible) {
         setIsVisible((prev) => !prev);
   }};
-
-  const handleCategoryClick = () => {
-    setSelectedCategory(title);
-    setActiveForm("resource");
-  }
 
   return (
     <div className="card">
@@ -38,7 +32,7 @@ export const Category = ({ title }) => {
               <Button action="edit" />
             </div>
             <h2>{title}</h2>
-            <Button action="access-resource" handleOnClick={handleCategoryClick} />
+            <Button action="access-resource" handleOnClick={() => handleOnClick(id)} />
           </div>
 
           <div className="card-split">

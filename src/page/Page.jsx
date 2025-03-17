@@ -7,11 +7,13 @@ import { FormsContainer } from "../components/forms_container/FormsContainer";
 import { useCategories } from "../features/useCategories";
 import { useForm } from "../context/FormContext";
 import "./Page.css";
+import { useResources } from "../features/useResources";
+import { useEffect } from "react";
 
 export const Page = () => {
     const { activeForm, setActiveForm, selectedCategory } = useForm();
     const { categories} = useCategories();
-
+    const { resources, getCategoryById } = useResources();
 
     const handleCreateCategory = () => {
         setActiveForm("category")
@@ -31,14 +33,20 @@ export const Page = () => {
                 <Footer />
             </div>
         );
-    if (activeForm === "resource")
+    if (activeForm === "resource" && resources.length > 0)
         return (
             <div className="page-container">
                 <Header />
                 <main className="content">
                     <Button label="recurso" handleOnClick={handleCreateResource} />
                     <h1>{selectedCategory}</h1>
-                    <Resource category={selectedCategory} />
+                    {resources.length > 0 ? (
+                        resources.map((resource) => (
+                            <Resource key={resource.id} title={resource.title} fileUrl={resource.fileUrl} category={resource.category.name}/>
+                        ))
+                    ) : (
+                        <p>No hay recursos disponibles.</p>
+                    )}
                 </main>
                 <Footer />
             </div>
@@ -51,7 +59,7 @@ export const Page = () => {
                 <Button label="categoría" handleOnClick={handleCreateCategory} />
                 {categories.length > 0 ? (
                     categories.map((category, index) => (
-                        <Category key={index} title={category.title} />
+                        <Category key={index} id={1} title={category.title} handleOnClick={getCategoryById} />
                     ))
                 ) : (
                     <p>No hay categorías disponibles.</p>

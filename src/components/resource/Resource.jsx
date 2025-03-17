@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Button } from "../button/Button";
 import "./Resource.css";
 
-export const Resource = ({ category }) => {
+export const Resource = ({ title, fileUrl, category }) => {
   const [visible, setIsVisible] = useState(true);
-
   const handleClick = () => {
     if (!visible) {
         setIsVisible(true)
@@ -13,14 +12,15 @@ export const Resource = ({ category }) => {
     }
   };
 
+
   return (
     <div className="card">
       {!visible && (
         <div className="delete-container">
-            <h1>HTML</h1>
+            <h1>{category}</h1>
             <h2>Lenguaje de marcado</h2>
-            <h2>Resources for {category}</h2>
-            <p>Here you can see all resources related to {category}.</p>
+            <h2>Resources for {title}</h2>
+            <p>Here you can see all resources related to {title}.</p>
           <div className="card-delete">
             <h2 >¿Está seguro de que desea eliminar este contenido?</h2>
             <div className="delete-opts">
@@ -37,13 +37,13 @@ export const Resource = ({ category }) => {
               <Button action="delete" handleOnClick={handleClick} />
               <Button action="edit" />
             </div>
-            <h2>HTML Tutorial</h2>
+            <h2>{title}</h2>
           </div>
           <div className="card-split">
             <div className="card-column">
             <h2>HTML</h2>
               <p>
-                https://www.w3schools.com/html/default.asp
+                {fileUrl}
               </p>
             </div>
             <div className="card-center">
